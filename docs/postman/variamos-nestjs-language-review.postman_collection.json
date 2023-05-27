@@ -1,0 +1,436 @@
+{
+	"info": {
+		"_postman_id": "607165ca-f1bc-4fff-bd64-fd318f25da8b",
+		"name": "VariaMos NestJS Language Review",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Language Reviews",
+			"item": [
+				{
+					"name": "Get All Language Reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/languagereviews",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"languagereviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Language Reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/languagereviews/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"languagereviews",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Language ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/languagereviews/language/44",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"languagereviews",
+								"language",
+								"44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Language Review",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"languageId\": 2,\n    \"status\": \"open\",\n    \"languageOwner\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/languagereviews/2/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"languagereviews",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Language Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"languageId\": 44,\n    \"status\": \"review\",\n    \"languageOwner\": 2,\n    \"languageOwnerEmail\": \"second-email@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/languagereviews/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"languagereviews",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Language Review",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/languagereviews/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"languagereviews",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviewers",
+			"item": [
+				{
+					"name": "Get All Reviewers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/reviewers",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviewers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Reviewer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/reviewers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviewers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Reviewers",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"dummyreviewer@reviewers.com\",\n    \"languageReview\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reviewers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviewers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Reviewers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"another@reviewers.com\",\n    \"languageReview\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reviewers/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviewers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk - Create Many Reviewers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"email\": \"user1@reviewers.com\",\n        \"languageReview\": 1\n    },\n    {\n        \"email\": \"user2@reviewers.com\",\n        \"languageReview\": 1\n    },\n    {\n        \"email\": \"user3@reviewers.com\",\n        \"languageReview\": 1\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reviewers/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviewers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Reviewers",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reviewers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviewers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Get All Comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/comments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Comment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/comments/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comments",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"Hello there...\",\n    \"date\": \"2023-02-01\",\n    \"status\": \"open\",\n    \"languageReview\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/comments/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Comments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"You need to change few things...\",\n    \"date\": \"2023-02-01\",\n    \"status\": \"open\",\n    \"languageReview\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/comments/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comments",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/comments/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
