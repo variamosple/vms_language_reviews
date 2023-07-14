@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class LanguageReview {
@@ -11,8 +11,8 @@ export class LanguageReview {
   @Column()
   status: string; // review, approved, rejected
 
-  @Column() 
-  languageOwner: number;
+  @Column()
+  languageOwner: string;
 
   @Column()
   languageOwnerEmail: string;
