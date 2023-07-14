@@ -18,8 +18,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "docker:ci": "docker build -t variamosworkteam:latest .",
-    "docker:deploy": "docker run -d --name variamos -p 3000:3000 variamosworkteam:latest "
+    "docker:ci": "docker build -t variamosreviews:latest .",
+    "docker:deploy": "docker run -d --name variamos -p 3001:3001 variamosreviews:latest "
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
