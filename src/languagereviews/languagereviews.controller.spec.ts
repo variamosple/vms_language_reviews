@@ -11,7 +11,9 @@ describe('LanguagereviewsController', () => {
       providers: [LanguagereviewsService],
     }).compile();
 
-    controller = module.get<LanguagereviewsController>(LanguagereviewsController);
+    controller = module.get<LanguagereviewsController>(
+      LanguagereviewsController,
+    );
   });
 
   it('should be defined', () => {

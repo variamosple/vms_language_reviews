@@ -15,7 +15,9 @@ export class LanguagereviewsService {
   }
 
   findAll() {
-    return this.languageReviewRepository.find();
+    return this.languageReviewRepository.find({
+      relations: ['reviewers'],
+    });
   }
 
   findOne(id: number) {
@@ -23,7 +25,10 @@ export class LanguagereviewsService {
   }
 
   findByLanguageId(languageId: number) {
-    return this.languageReviewRepository.findOneBy({ languageId: languageId });
+    return this.languageReviewRepository.findOne({
+      where: { languageId },
+      relations: ['reviewers'],
+    });
   }
 
   update(id: number, updateLanguageReviewDto: LanguageReview) {

@@ -16,8 +16,8 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Expose port 3001 for the application to listen on
-EXPOSE 3001
+# Expose port 3000 for the application to listen on
+EXPOSE 3000
 
 # Start the application when the container starts
 CMD ["npm", "start"]
