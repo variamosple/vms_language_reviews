@@ -11,7 +11,7 @@ export class LanguagereviewsService {
   ) {}
 
   create(createLanguageReview: LanguageReview) {
-    return this.languageReviewRepository.insert(createLanguageReview);
+    return this.languageReviewRepository.save(createLanguageReview);
   }
 
   findAll() {
