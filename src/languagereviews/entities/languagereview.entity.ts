@@ -1,3 +1,4 @@
+import { Comment } from 'src/comments/entities/comment.entity';
 import { Reviewer } from 'src/reviewers/entities/reviewer.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
@@ -20,4 +21,7 @@ export class LanguageReview {
 
   @OneToMany(() => Reviewer, (review) => review.languageReview)
   reviewers: Reviewer[];
+
+  @OneToMany(() => Comment, (comment) => comment.languageReview)
+  comments: Comment[];
 }

@@ -16,7 +16,7 @@ export class LanguagereviewsService {
 
   findAll() {
     return this.languageReviewRepository.find({
-      relations: ['reviewers'],
+      relations: ['reviewers', 'comments'],
     });
   }
 
@@ -27,7 +27,7 @@ export class LanguagereviewsService {
   findByLanguageId(languageId: number) {
     return this.languageReviewRepository.findOne({
       where: { languageId },
-      relations: ['reviewers'],
+      relations: ['reviewers', 'comments'],
     });
   }
 

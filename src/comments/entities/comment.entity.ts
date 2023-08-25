@@ -1,5 +1,5 @@
-import { LanguageReview } from "src/languagereviews/entities/languagereview.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { LanguageReview } from 'src/languagereviews/entities/languagereview.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Comment {
@@ -18,4 +18,3 @@ export class Comment {
   @ManyToOne(() => LanguageReview, (languageReview) => languageReview.id)
   languageReview: LanguageReview;
 }
-
