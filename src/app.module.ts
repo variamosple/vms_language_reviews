@@ -16,7 +16,7 @@ import { Comment } from './comments/entities/comment.entity';
     CommentsModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'variamos-db-2023.postgres.database.azure.com',
+      host: 'variamos-db-2024.postgres.database.azure.com',
       port: 5432,
       username: 'adminpg',
       password: 'a=m=8hos.G!-s<*M1G',
