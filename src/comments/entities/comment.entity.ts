@@ -15,6 +15,9 @@ export class Comment {
   @Column()
   status: string; // Open, Solved
 
+  @Column()
+  authorName: string;
+
   @ManyToOne(() => LanguageReview, (languageReview) => languageReview.id)
   languageReview: LanguageReview;
 }
