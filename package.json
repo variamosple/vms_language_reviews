@@ -19,12 +19,13 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "docker:clear": "docker rmi variamos-lang-review:latest",
-    "docker:build": "docker build -t variamos-lang-review:latest .", 
+    "docker:build": "docker build -t variamos-lang-review:latest .",
     "docker:ci": "yarn docker:build && yarn docker:clear",
     "docker:deploy": "yarn docker:build && docker run -d --name variamos-lang-review -p 3000:3000 variamos-lang-review:latest"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "^3.1.1",
     "@nestjs/core": "^9.0.0",
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^9.0.0",
