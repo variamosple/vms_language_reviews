@@ -8,24 +8,35 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { LanguageReview } from './languagereviews/entities/languagereview.entity';
 import { Reviewer } from './reviewers/entities/reviewer.entity';
 import { Comment } from './comments/entities/comment.entity';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { UsersModule } from './users/users.module';
+import { User } from './users/entities/user.entity';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        type: 'postgres',
+        host:
+          configService.get('DB_HOST') ||
+          'variamos-db-2024.postgres.database.azure.com',
+        port: configService.get('DB_PORT') || 5432,
+        username: configService.get('DB_USER') || 'adminpg',
+        password: configService.get('DB_PASSWORD') || '123456',
+        database: configService.get('DB_DATABASE') || 'VariamosDB',
+        schema: configService.get('DB_SCHEMA') || 'variamos',
+        ssl: configService.get('DB_SSL') === 'true',
+        synchronize: true,
+        entities: [LanguageReview, Reviewer, Comment, User],
+      }),
+      inject: [ConfigService],
+    }),
     ReviewersModule,
     LanguagereviewsModule,
     CommentsModule,
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'variamos-db-2024.postgres.database.azure.com',
-      port: 5432,
-      username: 'adminpg',
-      password: 'a=m=8hos.G!-s<*M1G',
-      database: 'VariamosDB',
-      schema: 'variamos',
-      ssl: true,
-      synchronize: true,
-      entities: [LanguageReview, Reviewer, Comment],
-    }),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
