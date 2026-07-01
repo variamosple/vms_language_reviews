@@ -28,7 +28,7 @@ import { User } from './users/entities/user.entity';
         database: configService.get('DB_DATABASE') || 'VariamosDB',
         schema: configService.get('DB_SCHEMA') || 'variamos',
         ssl: configService.get('DB_SSL') === 'true',
-        synchronize: true,
+        synchronize: false,
         entities: [LanguageReview, Reviewer, Comment, User],
       }),
       inject: [ConfigService],
