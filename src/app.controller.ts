@@ -1,4 +1,4 @@
-import os from 'node:os';
+import * as os from 'node:os';
 import { Controller, Get, HttpStatus, Res } from '@nestjs/common';
 import { InjectDataSource } from '@nestjs/typeorm';
 import type { Response } from 'express';
