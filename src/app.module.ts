@@ -12,6 +12,14 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 
+function requireConfig(configService: ConfigService, key: string): string {
+  const value = configService.get<string>(key);
+  if (!value) {
+    throw new Error(`Missing required environment variable: ${key}`);
+  }
+  return value;
+}
+
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -19,12 +27,10 @@ import { User } from './users/entities/user.entity';
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        host:
-          configService.get('DB_HOST') ||
-          'variamos-db-2024.postgres.database.azure.com',
+        host: requireConfig(configService, 'DB_HOST'),
         port: configService.get('DB_PORT') || 5432,
-        username: configService.get('DB_USER') || 'adminpg',
-        password: configService.get('DB_PASSWORD') || '123456',
+        username: requireConfig(configService, 'DB_USER'),
+        password: requireConfig(configService, 'DB_PASSWORD'),
         database: configService.get('DB_DATABASE') || 'VariamosDB',
         schema: configService.get('DB_SCHEMA') || 'variamos',
         ssl: configService.get('DB_SSL') === 'true',
